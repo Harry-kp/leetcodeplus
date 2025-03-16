@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode Watcher Tracker",
+  "version": "1.0",
+  "description": "Shows the number of live watchers for LeetCode problems in the list view.",
+  "permissions": ["scripting"],
+  "host_permissions": ["https://leetcode.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problemset/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
+}
